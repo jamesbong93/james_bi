@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                         <div class="col-xs-12">
-                            <?php echo form_submit('submit', lang('auth_login'), array('class' => 'btn btn-primary btn-block', 'id' => 'submitbtn', 'onclick' => 'submitCheck()'));?>
+                            <?php echo form_submit('submit', lang('auth_login'), array('class' => 'btn btn-primary btn-block', 'id' => 'submitbtn'));?>
                         </div>
                     </div>
                 <?php echo form_close();?>

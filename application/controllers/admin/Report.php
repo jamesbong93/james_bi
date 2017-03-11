@@ -40,17 +40,36 @@ class Report extends Admin_Controller
 
     public function getUsers(){
 
-        $pagenum = $_GET['pagenum'];
-        $pagesize = $_GET['pagesize'];
+        $pagenum = $this->input->get('pagenum');
+        $pagesize = $this->input->get('pagesize');
         
-        $users = $this->report_model->getAllUsers($pagenum, $pagesize);
-        $usersCount = $this->report_model->getUsersCount();
-        log_message('error', 'rowcount:' .$usersCount);
+        // Get sortdata info
+        if (($this->input->get('sortdatafield') == '') && ($this->input->get('sortorder') == '')){
+            $sortdatafield = NULL;
+            $sortorder = NULL;
+        } else{
+            $sortdatafield = $this->input->get('sortdatafield');
+            $sortorder = $this->input->get('sortorder');
+        }
+
+        // Get filterdata info
+        if($this->input->get('filterChanged')){
+            $filterslength = $this->input->get('filterslength');
+            $filterData = $this->input->get('filterData');
+            $filterCondition = $this->input->get('filterCondition');
+            $filterOperator = $this->input->get('filterOperator');
+            $filterParam = $this->input->get('filterParam');
+        }
+
+        $users = $this->report_model->getAllUsers($pagenum, $pagesize, $sortdatafield, $sortorder, $filterslength, $filterData, $filterCondition, $filterOperator, $filterParam);
+       
         $data[] = array(
-           'TotalRows' => $usersCount,
-           'Rows' => $users
+           'TotalRows' => $users['rowCount'],
+           'Rows' => $users['queryData']
         );
-        echo json_encode($data);
+
+       // log_message('error', 'data: ' .json_encode($data));
+       echo json_encode($data);
     }
 
 }

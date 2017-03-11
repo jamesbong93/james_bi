@@ -6,7 +6,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     .content{
         margin-left: 15px;
     }
-
 </style>
 
     <div>
@@ -18,9 +17,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             <section class="content">
                 <div class="row">
-                <div class="table-responsive">
-                    <jqx-data-table jqx-settings="gridSettings"></jqx-data-table>
-                </div>
                 <div style='margin-top: 20px;'>
                     <div style='float: left;'>
                         <div style='margin-left: 10px; float: left;'>
@@ -33,6 +29,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <jqx-button jqx-on-click="pdfExportClick()">Export to PDF</jqx-button>
                         </div>
                     </div>
+                </div><br><br>
+                <div class="table-responsive">
+                    <jqx-data-table jqx-settings="gridSettings" ng-model="girdModel"></jqx-data-table>
                 </div>
                 </div>
             </section>

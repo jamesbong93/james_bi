@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         <!-- jqwidgets plugin css -->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url($plugins_dir . '/jqwidgets/styles/jqx.base.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url($plugins_dir . '/jqwidgets/styles/jqx.web.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url($plugins_dir . '/jqwidgets/styles/jqx.ui-redmond.css'); ?>">
 
         <!-- Plupload CSS-->
         <link type="text/css" rel="stylesheet" href="<?php echo base_url($plugins_dir .'/plupload/css/jquery-ui.min.css');?>" media="screen" />
